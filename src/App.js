@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { darkTheme, lightTheme, SwapWidget } from "@uniswap/widgets";
+import "@uniswap/widgets/fonts.css";
 
-function App() {
+const Tokens = require("./myTokenList.json");
+
+// const CG_TOKEN_LIST = "https://tokens.coingecko.com/uniswap/all.json";
+
+const myLightTheme = {
+  ...lightTheme, // Extend the lightTheme
+  accent: "#FF007A",
+  primary: "#000000",
+  secondary: "#565A69",
+};
+
+const myDarkTheme = {
+  ...darkTheme, // Extend the darkTheme
+  accent: "#9A00FF",
+  primary: "#FFFFFF",
+  secondary: "#888D9B",
+};
+
+let darkMode = true;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Uniswap-container">
+      <div className="Uniswap">
+        <SwapWidget width={360} theme={darkMode ? myDarkTheme : myLightTheme} tokenList={Tokens} />
+      </div>
     </div>
   );
 }
-
-export default App;
