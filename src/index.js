@@ -5,7 +5,7 @@ import App from "./App";
 const { Network, Alchemy } = require("alchemy-sdk");
 
 const settings = {
-  apiKey: "jsjliSQRBijuieUHsWmfE2VEjHzh-hyJ",
+  apiKey: "",
   network: Network.ETH_MAINNET,
 };
 
